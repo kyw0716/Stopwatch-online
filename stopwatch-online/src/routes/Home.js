@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
-function Home(){
+function Home({timer}){
     const [milSecond, setMilSecond] = useState(0);
     const [second, setSecond] = useState(0);
     const [minute, setMinute] = useState(0);
     const [hour, setHour] = useState(0);
     const [toggle, setToggle] = useState(true);
-    let timer = useRef();
+    const [interv, setInterv] = useState();
+    const [change, setChange] = useState(true);
     useEffect(()=>{
         if(milSecond === 100){
             setSecond(current => current + 1);
@@ -25,9 +26,9 @@ function Home(){
         setMilSecond((current) => current + 1);
     }
     const start = () => {
-        timer = setInterval(()=>{
+        setInterv(timer = setInterval(()=>{
             cnt();
-        }, 10);
+        }, 10));
         setToggle((current) => !current);
     }
     const reset = () => {
@@ -35,10 +36,19 @@ function Home(){
         setSecond(0);
         setHour(0);
         setMinute(0);
+        setInterv(clearInterval(interv));
+        setChange(true);
+        setToggle((current) => !current);
     }
     const pause = () => {
-        clearInterval(timer.current);
-        setToggle((current) => !current);
+        setInterv(clearInterval(interv));
+        setChange(current => !current);
+    }
+    const resume = () =>{
+        setInterv(timer = setInterval(()=>{
+            cnt();
+        }, 10));
+        setChange(current => !current);
     }
     return(
         <div>
@@ -48,8 +58,13 @@ function Home(){
                 {second < 10 ? `0${second}` : second}.
                 {milSecond < 10 ? `0${milSecond}` : milSecond}
             </span>
-            {toggle ? <button onClick={start}>start</button> : <button onClick={pause}>pause</button>}
-            <button onClick={reset}>reset</button>
+            {toggle ? 
+                <button onClick={start}>start</button> : 
+                <div>
+                    {change ? <button onClick={pause}>pause</button> : <button onClick={resume}>resume</button> }
+                    <button onClick={reset}>reset</button>
+                </div>
+            }
         </div>
     );
 }
