@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import Button from "../components/Button";
+import Stopwatch from "../components/Stopwatch";
+import styles from "./Home.module.css";
 
-function Home({timer}){
+function Home(){
     const [milSecond, setMilSecond] = useState(0);
     const [second, setSecond] = useState(0);
     const [minute, setMinute] = useState(0);
@@ -26,7 +29,7 @@ function Home({timer}){
         setMilSecond((current) => current + 1);
     }
     const start = () => {
-        setInterv(timer = setInterval(()=>{
+        setInterv(setInterval(()=>{
             cnt();
         }, 10));
         setToggle((current) => !current);
@@ -45,26 +48,15 @@ function Home({timer}){
         setChange(current => !current);
     }
     const resume = () =>{
-        setInterv(timer = setInterval(()=>{
+        setInterv(setInterval(()=>{
             cnt();
         }, 10));
         setChange(current => !current);
     }
     return(
-        <div>
-            <span>
-                {hour < 10 ? `0${hour}` : hour}:
-                {minute < 10 ? `0${minute}` : minute}:
-                {second < 10 ? `0${second}` : second}.
-                {milSecond < 10 ? `0${milSecond}` : milSecond}
-            </span>
-            {toggle ? 
-                <button onClick={start}>start</button> : 
-                <div>
-                    {change ? <button onClick={pause}>pause</button> : <button onClick={resume}>resume</button> }
-                    <button onClick={reset}>reset</button>
-                </div>
-            }
+        <div className={styles.container}>
+            <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second}/>
+            <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
         </div>
     );
 }
