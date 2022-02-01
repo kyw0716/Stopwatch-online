@@ -11,6 +11,8 @@ function Home() {
     const [toggle, setToggle] = useState(true);
     const [interv, setInterv] = useState();
     const [change, setChange] = useState(true);
+    const [select, setSelect] = useState("default");
+
     useEffect(() => {
         if (milSecond === 100) {
             setSecond(current => current + 1);
@@ -53,11 +55,30 @@ function Home() {
         }, 10));
         setChange(current => !current);
     }
+    const stopwatch = () =>{
+        setSelect("stopwatch");
+    }
+    const timer = () =>{
+        setSelect("timer");
+    }
     return (
         <div className={styles.container}>
-            <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second} />
-            <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
+            {select === "default" ? <>press button</> :
+                select === "stopwatch" ? 
+                <>
+                    <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second} />
+                    <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
+                </> :
+                <>
+                    timer
+                </>
+
+            }
             <div className={styles.frame}></div>
+            <div className={styles.selectBtn}>
+                <button onClick={stopwatch}>stopwatch</button>
+                <button onClick={timer}>timer</button>
+            </div>
         </div>
     );
 }
