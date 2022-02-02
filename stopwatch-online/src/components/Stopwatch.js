@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./Stopwatch.module.css";
 
 function Stopwatch({onClickB}) {
 
@@ -55,24 +56,24 @@ function Stopwatch({onClickB}) {
 
 
     return (
-        <div>
-            <div >
+        <div className={styles.background}>
+            <div className={styles.container}>
                 <span>
                     <span>{hour < 10 ? `0${hour}` : hour}</span>:
                     <span>{minute < 10 ? `0${minute}` : minute}</span>:
                     <span>{second < 10 ? `0${second}` : second}</span>.
                     <span>{milSecond < 10 ? `0${milSecond}` : milSecond}</span>
                 </span>
-            </div>
-            <div>
+                <div className={styles.btnContainer}>
                 {toggle ?
-                    <button onClick={start}>start</button> :
-                    <div>
-                        {change ? <button onClick={pause}>pause</button> : <button onClick={resume}>resume</button>}
-                        <button onClick={reset}>reset</button>
+                    <button className={styles.btn} onClick={start}>start</button> :
+                    <div className={styles.btnPlusContainer}>
+                        {change ? <button className={styles.btnPlus} onClick={pause}>pause</button> : <button className={styles.btnPlus} onClick={resume}>resume</button>}
+                        <button className={styles.btnPlus} onClick={reset}>reset</button>
                     </div>
                 }
-                <button onClick={onClickB}>Home</button>
+                <button className={styles.btn} onClick={onClickB}>Home</button>
+            </div>
             </div>
         </div>
     );
