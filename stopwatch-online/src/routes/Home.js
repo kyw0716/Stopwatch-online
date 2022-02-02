@@ -27,24 +27,6 @@ function Home() {
                     <Timer onClickB={onClickB}/>
         }
         </>
-        // <div className={styles.container}>
-        //     {select === "default" ? <>press button</> :
-        //         select === "stopwatch" ? 
-        //         <>
-        //             <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second} />
-        //             <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
-        //         </> :
-        //         <>
-        //             timer
-        //         </>
-
-        //     }
-        //     <div className={styles.frame}></div>
-        //     <div className={styles.selectBtn}>
-        //         <button onClick={stopwatch}>stopwatch</button>
-        //         <button onClick={timer}>timer</button>
-        //     </div>
-        // </div>
     );
 }
 
