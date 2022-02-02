@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 
 function Stopwatch({onClickB}) {
 
@@ -73,7 +72,7 @@ function Stopwatch({onClickB}) {
                         <button onClick={reset}>reset</button>
                     </div>
                 }
-                <button onClick={onClickB}>back</button>
+                <button onClick={onClickB}>Home</button>
             </div>
         </div>
     );
