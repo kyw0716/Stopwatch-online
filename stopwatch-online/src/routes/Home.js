@@ -1,85 +1,50 @@
-import { useEffect, useState } from "react";
-import Button from "../components/Button";
+import { useState } from "react";
+import Select from "../components/Select";
 import Stopwatch from "../components/Stopwatch";
-import styles from "./Home.module.css";
+import Timer from "../components/Timer";
 
 function Home() {
-    const [milSecond, setMilSecond] = useState(0);
-    const [second, setSecond] = useState(0);
-    const [minute, setMinute] = useState(0);
-    const [hour, setHour] = useState(0);
-    const [toggle, setToggle] = useState(true);
-    const [interv, setInterv] = useState();
-    const [change, setChange] = useState(true);
-    const [select, setSelect] = useState("default");
+    const [selectPage, setSelectPage] = useState("default");
 
-    useEffect(() => {
-        if (milSecond === 100) {
-            setSecond(current => current + 1);
-            setMilSecond(0);
-        }
-        if (second === 60) {
-            setMinute(current => current + 1);
-            setSecond(0);
-        }
-        if (minute === 60) {
-            setHour(current => current + 1);
-            setMinute(0);
-        }
-    }, [milSecond, second, minute]);
-    const cnt = () => {
-        setMilSecond((current) => current + 1);
+    const onClickS = () => {
+        setSelectPage("stopwatch");
     }
-    const start = () => {
-        setInterv(setInterval(() => {
-            cnt();
-        }, 10));
-        setToggle((current) => !current);
+    const onClickT = () => {
+        setSelectPage("timer");
     }
-    const reset = () => {
-        setMilSecond(0);
-        setSecond(0);
-        setHour(0);
-        setMinute(0);
-        setInterv(clearInterval(interv));
-        setChange(true);
-        setToggle((current) => !current);
+    const onClickB = () => {
+        setSelectPage("default");
     }
-    const pause = () => {
-        setInterv(clearInterval(interv));
-        setChange(current => !current);
-    }
-    const resume = () => {
-        setInterv(setInterval(() => {
-            cnt();
-        }, 10));
-        setChange(current => !current);
-    }
-    const stopwatch = () =>{
-        setSelect("stopwatch");
-    }
-    const timer = () =>{
-        setSelect("timer");
-    }
+
     return (
-        <div className={styles.container}>
-            {select === "default" ? <>press button</> :
-                select === "stopwatch" ? 
-                <>
-                    <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second} />
-                    <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
-                </> :
-                <>
-                    timer
-                </>
+        <>
+        {
+            selectPage === "default" ? 
+                <Select onClickS={onClickS} onClickT={onClickT}/> :
+                selectPage === "stopwatch" ?
+                    <Stopwatch onClickB={onClickB}/>
+                    :
+                    <Timer onClickB={onClickB}/>
+        }
+        </>
+        // <div className={styles.container}>
+        //     {select === "default" ? <>press button</> :
+        //         select === "stopwatch" ? 
+        //         <>
+        //             <Stopwatch hour={hour} minute={minute} milSecond={milSecond} second={second} />
+        //             <Button toggle={toggle} start={start} change={change} pause={pause} resume={resume} reset={reset} />
+        //         </> :
+        //         <>
+        //             timer
+        //         </>
 
-            }
-            <div className={styles.frame}></div>
-            <div className={styles.selectBtn}>
-                <button onClick={stopwatch}>stopwatch</button>
-                <button onClick={timer}>timer</button>
-            </div>
-        </div>
+        //     }
+        //     <div className={styles.frame}></div>
+        //     <div className={styles.selectBtn}>
+        //         <button onClick={stopwatch}>stopwatch</button>
+        //         <button onClick={timer}>timer</button>
+        //     </div>
+        // </div>
     );
 }
 
