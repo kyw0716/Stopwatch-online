@@ -1,13 +1,10 @@
 {
   "files": {
-    "main.css": "/Stopwatch-online/static/css/main.928f6248.css",
-    "main.js": "/Stopwatch-online/static/js/main.92327261.js",
+    "main.js": "/Stopwatch-online/static/js/main.90b816c5.js",
     "index.html": "/Stopwatch-online/index.html",
-    "main.928f6248.css.map": "/Stopwatch-online/static/css/main.928f6248.css.map",
-    "main.92327261.js.map": "/Stopwatch-online/static/js/main.92327261.js.map"
+    "main.90b816c5.js.map": "/Stopwatch-online/static/js/main.90b816c5.js.map"
   },
   "entrypoints": [
-    "static/css/main.928f6248.css",
-    "static/js/main.92327261.js"
+    "static/js/main.90b816c5.js"
   ]
 }
