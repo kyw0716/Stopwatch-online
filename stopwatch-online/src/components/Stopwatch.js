@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Stopwatch.module.css";
+import style from "./Timer.module.css";
 
 function Stopwatch({onClickB}) {
 
@@ -72,7 +73,7 @@ function Stopwatch({onClickB}) {
                         <button className={styles.btnPlus} onClick={reset}>reset</button>
                     </div>
                 }
-                <button className={styles.btn} onClick={onClickB}>Home</button>
+                <button className={style.homeBtn} onClick={onClickB}>Home</button>
             </div>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./Timer.module.css";
 
 function Timer({onClickB}){
     const [minute, setMinute] = useState(1);
@@ -46,34 +47,44 @@ function Timer({onClickB}){
     }
 
     return(
-        <div>
+        <div className={styles.background}>
             {change ? 
-                <div>
-                    <form onSubmit={(e)=>{e.preventDefault(); setChange(false) }}>
-                        <label htmlFor="minute">MINUTES : </label>
-                        <input 
-                            onChange={(e)=>setMinute(e.target.value)}
-                            value={minute}
-                            id="minute"
-                        />
-                        <br/>
-                        <label htmlFor="second">SECONDS : </label>
-                        <input 
-                            onChange={(e)=>setSecond(e.target.value)}
-                            value={second}
-                            id="second"
-                        />
-                        <br/>
-                        <button onClick={start}>start</button>
+                <div className={styles.container}>
+                    <form className={styles.form} onSubmit={(e)=>{e.preventDefault(); setChange(false) }}>
+                        <div className={styles.formDiv}>
+                            <div className={styles.inputDiv}>
+                                <input 
+                                    className={styles.input}
+                                    onChange={(e)=>setMinute(e.target.value)}
+                                    value={minute}
+                                    id="minute"
+                                    type="number"
+                                />
+                                <label htmlFor="minute">min</label>
+                            </div>
+                            <div className={styles.inputDiv}>
+                                <input
+                                    className={styles.input} 
+                                    onChange={(e)=>setSecond(e.target.value)}
+                                    value={second}
+                                    id="second"
+                                    type="number"
+                                />
+                                <label htmlFor="second">sec</label>
+                            </div>
+                        </div>
+                        <button className={styles.btn} onClick={start}>start</button>
                     </form>
-                    <button onClick={onClickB}>Home</button>
+                    <button className={styles.homeBtn} onClick={onClickB}>Home</button>
                 </div>
                  :
-                <div>
-                    <span>{minute < 10 ? `0${minute} : ` : `${minute} : `} </span>
-                    <span>{second < 10 ? `0${second}` : second}</span>
-                    <br/>
-                    <button onClick={reset}>reset</button>
+                <div className={styles.timerBox}>
+                    <div className={styles.numberBox}>
+                        <span>{minute < 10 ? `0${minute} : ` : `${minute} : `} </span>
+                        <span>{second < 10 ? `0${second}` : second}</span>
+                    </div>
+                    <button className={styles.btn} onClick={reset}>reset</button>
+                    <button className={styles.homeBtn} onClick={onClickB}>Home</button>
                 </div>
             }
         </div> 
