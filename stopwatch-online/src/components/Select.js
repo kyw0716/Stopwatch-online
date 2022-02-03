@@ -1,10 +1,12 @@
+import styles from "./Select.module.css";
+
 function Select({onClickS, onClickT}){
     return(
-        <div>
-            <button onClick={onClickS}>
+        <div className={styles.container}>
+            <button className={styles.rightBtn} onClick={onClickS}>
                 stopwatch
             </button>
-            <button onClick={onClickT}>
+            <button className={styles.leftBtn} onClick={onClickT}>
                 timer
             </button>
         </div>
