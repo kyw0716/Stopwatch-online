@@ -1,27 +1,59 @@
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+@media(min-width: 999px){
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .rightBtn{
+        width: 30%;
+        height: 50%;
+        background-color: black;
+        border: 5px solid whitesmoke;
+        border-radius: 25px;
+        margin-right: 20px;
+        color: whitesmoke;
+        font-size: 45px;
+    }
+    .leftBtn{
+        width: 30%;
+        height: 50%;
+        background-color: black;
+        border: 5px solid whitesmoke;
+        border-radius: 25px;
+        color: whitesmoke;
+        font-size: 45px;
+    }
 }
-.rightBtn{
-    width: 30%;
-    height: 50%;
-    background-color: black;
-    border: 5px solid whitesmoke;
-    border-radius: 25px;
-    margin-right: 20px;
-    color: whitesmoke;
-    font-size: 45px;
-}
-.leftBtn{
-    width: 30%;
-    height: 50%;
-    background-color: black;
-    border: 5px solid whitesmoke;
-    border-radius: 25px;
-    color: whitesmoke;
-    font-size: 45px;
+@media(max-width: 1000px){
+    .container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .rightBtn{
+        width: 30%;
+        height: 20%;
+        background-color: black;
+        border: 5px solid whitesmoke;
+        border-radius: 25px;
+        color: whitesmoke;
+        font-size: 20px;
+    }
+    .leftBtn{
+        margin-top: 20px;
+        width: 30%;
+        height: 20%;
+        background-color: black;
+        border: 5px solid whitesmoke;
+        border-radius: 25px;
+        color: whitesmoke;
+        font-size: 20px;
+    }
 }

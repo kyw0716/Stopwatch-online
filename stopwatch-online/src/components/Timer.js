@@ -23,7 +23,6 @@ function Timer({onClickB}){
         setMinute(1);
         setChange(true);
     }
-
     useEffect(()=>{
         if(minute === -1){
             alarm();
@@ -52,27 +51,24 @@ function Timer({onClickB}){
                 <div className={styles.container}>
                     <form className={styles.form} onSubmit={(e)=>{e.preventDefault(); setChange(false) }}>
                         <div className={styles.formDiv}>
-                            <div className={styles.inputDiv}>
-                                <input 
-                                    className={styles.input}
-                                    onChange={(e)=>setMinute(e.target.value)}
-                                    value={minute}
-                                    id="minute"
-                                    type="number"
-                                />
-                                <label htmlFor="minute">min</label>
-                            </div>
-                            <div className={styles.inputDiv}>
-                                <input
-                                    className={styles.input} 
-                                    onChange={(e)=>setSecond(e.target.value)}
-                                    value={second}
-                                    id="second"
-                                    type="number"
-                                />
-                                <label htmlFor="second">sec</label>
-                            </div>
-                        </div>
+                            <input 
+                                className={styles.input}
+                                onChange={(e)=>setMinute(e.target.value)}
+                                value={minute}
+                                id="minute"
+                                type="number"
+                            />
+                            <span className={styles.middleSpan}>
+                            :
+                            </span>
+                            <input
+                                className={styles.input} 
+                                onChange={(e)=>setSecond(e.target.value)}
+                                value={second}
+                                id="second"
+                                type="number"
+                            />
+                    </div>
                         <button className={styles.btn} onClick={start}>start</button>
                     </form>
                     <button className={styles.homeBtn} onClick={onClickB}>Home</button>
