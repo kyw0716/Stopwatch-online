@@ -64,7 +64,7 @@ const end = () => {
 <br/>
 
 ## 3. Timer input
-![img](./stopwatch-online/public/TimerPage.png)
+![img](./stopwatch-online/public/TimerPage(ver.2).png)
 ### Timer.js에서는 minute 값과 second 값을 각각의 state로 입력 받는다. 이를 이용해 앞서 Stopwatch.js 에서 설명한것과 같은 방식으로 setInterval 함수를 사용하여 timer를 작동시킨다. timer가 종료될 시 종료를 알리는 소리를 발생 시키기 위해 Audio 함수를 이용하였다. 
 
 <br/>
@@ -111,3 +111,26 @@ const alarm = () => {
 * `javascript`, `react` : 반응형 웹페이지 제작을 위해 사용
 * `html`, `css` : 웹 서비스의 기본 레이아웃 구성 및 디자인
 * `JSX` : React 엘리먼트를 생성하면서 자바스크립트의 모든 기능을 쓸 수 있도록 보조해주기 위해 이용 
+
+<br/>
+
+## Mobile web
+### 모바일 환경에서 작동될 시 화면의 요소들이 원래의 비율대로 보이지 않아 css @media를 통해 모바일 환경에서도 화면의 요소들이 잘 보이도록 설정해주었다.
+
+## 1. Mobile ver Select
+![img](./stopwatch-online/public/MobileSelect.jpg)
+
+## 2. Mobile ver Stopwatch
+![img](./stopwatch-online/public/MobileStopwatch.jpg)
+
+## 2. Mobile ver Stopwatch active - 1
+![img](./stopwatch-online/public/MobileStopwatchActive-1.jpg)
+
+## 2. Mobile ver Stopwatch active - 2
+![img](./stopwatch-online/public/MobileStopwatchActive-2.jpg)
+
+## 2. Mobile ver Timer
+![img](./stopwatch-online/public/MobileTimer.jpg)
+
+## 2. Mobile ver Timer active
+![img](./stopwatch-online/public/MobileTimerActive.jpg)
