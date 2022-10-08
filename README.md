@@ -1,7 +1,7 @@
 Stopwatch Online
 ================
 
-리액트 학습을 위해 만들어본 온라인 스톱워치
+여자친구의 토익 990점 기원을 위해 만든 스톱워치!!!
 
 https://kyw0716.github.io/Stopwatch-online
 
