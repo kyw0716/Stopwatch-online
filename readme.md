@@ -39,10 +39,10 @@
 
 1️⃣ 스톱워치 기능
 
-<img src="./스톱워치%20기능.gif" width="400px"/>
+<img src="./stopwatch-online/스톱워치%20기능.gif" width="400px"/>
 
 <br>
 
 2️⃣ 타이머 기능
 
-<img src="./타이머%20기능.gif" width="400px"/>
+<img src="./stopwatch-online/타이머%20기능.gif" width="400px"/>
