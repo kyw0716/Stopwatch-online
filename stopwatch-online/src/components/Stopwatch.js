@@ -19,7 +19,8 @@ function Stopwatch({ onClickB }) {
     setInterv(
       setInterval(() => {
         const currentTime = getTime();
-        setTimeDiff(getTimeDifference(Number(time), Number(currentTime)));
+
+        setTimeDiff(() => getTimeDifference(Number(time), Number(currentTime)));
       }, 10)
     );
 

@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import sound from "../static/alarm.mp3";
-import styles from "./Timer.module.css";
+import { useEffect, useState, useRef } from 'react';
+import sound from '../static/alarm.mp3';
+import styles from './Timer.module.css';
 
 function Timer({ onClickB }) {
   const [minute, setMinute] = useState(1);
   const [second, setSecond] = useState(0);
   const [interv, setInterv] = useState();
   const [change, setChange] = useState(true);
-  const [audio, setAudio] = useState(new Audio(sound));
+  const audio = useRef(new Audio(sound));
 
   const alarm = () => {
     audio.play();
@@ -15,7 +15,6 @@ function Timer({ onClickB }) {
     setTimeout(() => {
       const intervForAlarm = setInterval(() => {
         audio.play();
-        console.log(audio);
       }, 4000);
 
       clearInterval(intervForAlarm);
@@ -95,9 +94,9 @@ function Timer({ onClickB }) {
       ) : (
         <div className={styles.timerBox}>
           <div className={styles.numberBox}>
-            <span>{String(minute).padStart(2, "0")}</span>
+            <span>{String(minute).padStart(2, '0')}</span>
             &nbsp;:&nbsp;
-            <span>{String(second).padStart(2, "0")}</span>
+            <span>{String(second).padStart(2, '0')}</span>
           </div>
           <button className={styles.btn} onClick={reset}>
             reset
