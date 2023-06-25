@@ -25,7 +25,7 @@ function Timer({ onClickB }) {
   const reset = () => {
     clearInterval(interv);
     setSecond(0);
-    setMinute(1);
+    setMinute(0);
     setChange(true);
   };
 
