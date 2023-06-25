@@ -1,13 +1,14 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import sound from '../static/alarm.mp3';
 import styles from './Timer.module.css';
 
 function Timer({ onClickB }) {
-  const [minute, setMinute] = useState(1);
+  const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
   const [interv, setInterv] = useState();
   const [change, setChange] = useState(true);
-  const audio = useRef(new Audio(sound));
+
+  const audio = useMemo(() => new Audio(sound), []);
 
   const alarm = () => {
     audio.play();
@@ -53,7 +54,7 @@ function Timer({ onClickB }) {
 
   useEffect(() => {
     audio.load();
-  }, []);
+  }, [audio]);
 
   return (
     <div className={styles.background}>
